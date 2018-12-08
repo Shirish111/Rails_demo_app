@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row text-center">
+	<div class="col-lg-12" style="border: 0px solid black">
+	    <%= image_tag(
+		getImage,
+		:alt => "Sample App",
+		:class => "round",
+		:style => "height:100px;width:100px;border:1px solid black") %>
+	</div>
+    </div>
+    <div class="row text-center">
+	<div class="col-lg-12">
+	    <h5><%=link_to "@" + @user.username, "profile", method: 'get' %></h5>
+	</div>
+    </div>
+    <%= form_tag '/new_post', :method => 'post' do %>
+	<div class="row" style="border: 1px solid black;padding:10px;"><div class="col-lg-12">
+	    <div class="row ">
+		<div class="col-lg-12">
+		    <h4>New Post</h4>
+		    <%=text_area_tag :description%>
+	    </div>
+	</div>
+	<br />
+	<div class="row">
+	    <div class="col-lg-12">
+		<%=file_field(:post, :image, accept: 'image/png,image/gif,image/jpeg')%>
+	    </div>
+	</div>
+	<br />
+	<div class="row">
+	    <div class="col-lg-12">
+		<%=submit_tag :Post %>
+	    </div>
+	</div>
+	</div></div>
+    <%end%>
+</div>

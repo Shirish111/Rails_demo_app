@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+	<div class="col-lg-4"><h4>Username</h4></div>
+	<div class="col-lg-4"><h4>Email</h4></div>
+	<div class="col-lg-4"><h4>Action</h4></div>
+    </div>
+    <hr />
+    <% if @users %>
+	<% @users.each do |user| %>
+	    <div class="row">
+		<div class="col-lg-4">
+		    <p><%= user.username %></p>
+		</div>
+		<div class="col-lg-4">
+		    <p><%= user.email %></p>
+		</div>
+		<div class="col-lg-4">
+		    <%= form_tag '/follow_user', :method => 'post' do %>
+			<%=hidden_field_tag "id", user.id %>
+			<%=submit_tag :Follow %>
+		    <%end%>
+		</div>
+	    </div>
+	<% end %>
+    <% else %>
+	<h3>Sorry no results found!</h3>
+    <% end %>
+</div>

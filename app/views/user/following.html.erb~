@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row" style="min-height:400px;">
+      <div class="col-lg-6">
+	  <h3>Followers</h3>
+	  <hr />
+	  <% if @followees.any? %>
+	      <% @followers.each do |follower| %>
+		  <div class="row">
+		      <div class="col-lg-12">
+			  <%= follower.username %>
+		      </div>		  
+		  </div>
+	      <% end %>
+	  <% else %>
+	      <p>Sorry you don't have any followers</p>
+	  <% end %>
+      </div>
+      <div class="col-lg-6">
+	  <h3>Followees</h3>
+	  <hr />
+	  <% if @followees.any? %>
+      	      <% @followees.each do |followee| %>
+		  <div class="row">
+		      <div class="col-lg-12">
+			  <%= followee.username %>
+		      </div>		  
+		  </div>
+	      <% end %>
+	  <% else %>
+	      <p>Sorry you don't have any followees</p>
+	  <% end %>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-12 text-center">
+	  <%= form_tag '/search', :method => 'post' do %>
+	      <%=text_field_tag :username%>
+	      <%=submit_tag :Search%>
+	  <%end%>
+      </div>
+  </div>
+</div>

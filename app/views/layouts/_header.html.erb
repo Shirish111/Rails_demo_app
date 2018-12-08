@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <div class="row" style="min-height:50px;padding-top:30px;">
+	<div class="col-lg-10">
+	    <h1><%= link_to "Micro Posts", '/startpage', {:style => "color:black;"} %></h1>
+	</div>
+	<div class="col-lg-1">
+	    <% @loginhash = login_label %>
+	    <%= link_to @loginhash[:label], @loginhash[:link], :method => 'get' %>
+	</div>
+	<div class="col-lg-1">
+	    <%= link_to :SignUp, "signup", :method => 'get' %>
+	</div>
+    </div>
+<hr />

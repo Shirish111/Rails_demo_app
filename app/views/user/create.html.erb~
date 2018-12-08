@@ -1,0 +1,5 @@
+<!-- Header -->
+<%= render 'header' %>
+<!-- Body -->
+<!-- Footer -->
+<%= render 'footer'%>
